@@ -2,7 +2,7 @@
   <mj-column>
     <mj-text>
       {% blocktrans trimmed context "Base email text" %}
-        This is an automatically generated e-mail, please do not reply.
+        Si vous avez des questions concernant votre commande, n'hésitez pas à répondre à cet email.
       {% endblocktrans %}
     </mj-text>
   </mj-column>
@@ -11,7 +11,7 @@
   <mj-column>
     <mj-text align="center">
       {% blocktrans trimmed context "Base email footer" %}
-        Sincerely, {{ site_name }}
+        Meilleures salutations, l'équipe de la Ferme Desbiolles
       {% endblocktrans %}
     </mj-text>
   </mj-column>

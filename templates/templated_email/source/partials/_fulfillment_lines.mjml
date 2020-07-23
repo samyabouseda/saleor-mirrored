@@ -8,8 +8,8 @@
         <table style="width:100%">
           <thead class="table-header-row">
             <tr>
-              <th style="text-align: left;">{% trans "Item" context "Ordered item name" %}</th>
-              <th style="text-align: right;">{% trans "Quantity" context "Quantity ordered of a product" %}</th>
+              <th style="text-align: left;">{% trans "Article" context "Ordered item name" %}</th>
+              <th style="text-align: right;">{% trans "Quantité" context "Quantity ordered of a product" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -26,7 +26,7 @@
         <table style="width:100%">
           <thead class="table-header-row">
             <tr>
-              <th style="text-align: left;">{% trans "Item" context "Ordered item name" %}</th>
+              <th style="text-align: left;">{% trans "Article" context "Ordered item name" %}</th>
               <th style="text-align: right;">{% trans "Download Link" context "Ordered item download links" %}</th>
             </tr>
           </thead>
