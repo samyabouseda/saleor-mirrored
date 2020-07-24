@@ -10,20 +10,20 @@
     <mj-section>
       <mj-column>
         <mj-text font-size="16px">
-          {% trans "Hi!" context "Standard e-mail greeting" %}
+          {% trans "Bonjour," context "Standard e-mail greeting" %}
         </mj-text>
         <mj-text>
           {% blocktrans trimmed context "Fulfillment update email text" %}
-            Your shipping status has been updated. Below is the list of ordered products that have been updated with new tracking number.
+            Le statut de votre commande à été modifié. Vous trouverez ci-dessous la liste des produits qui ont été traités ainsi qu'un numéro de suivi. 
           {% endblocktrans %}
           {% if fulfillment.tracking_number %}
             {% if fulfillment.is_tracking_number_url %}
               {% blocktrans trimmed with tracking_number=fulfillment.tracking_number context "Fulfillment confirmation email text" %}
-                You can track your shipment with <a href="{{ tracking_number }}">{{ tracking_number }}</a> link.
+                Vous pouvez suivre votre commande avec ce lien <a href="{{ tracking_number }}">{{ tracking_number }}</a>.
               {% endblocktrans %}
             {% else %}
               {% blocktrans trimmed with tracking_number=fulfillment.tracking_number context "Fulfillment confirmation email text" %}
-                You can track your shipment with {{ tracking_number }} code.
+                Vous pouvez suivre votre commande avec ce code: {{ tracking_number }}.
               {% endblocktrans %}
             {% endif %}
           {% endif %}

@@ -4,36 +4,30 @@
 
 {% block subject %}
   {% blocktrans trimmed context "Order confirmation e-mail subject" %}
-    Order {{ order }} details
+    Ferme Desbiolles: Merci pour votre commande !
   {% endblocktrans %}
 {% endblock %}
 
 {% block plain %}
 {% include 'templated_email/shared/_header.email' %}
 {% blocktrans context "Order confirmation e-mail text" %}
-Thank you for your order. Below is the list of ordered products.
+Nous vous remercions de votre commande à la Ferme Desbiolles. Nous l'avons bien reçue et allons la traiter dans les plus brefs délais. Dès que votre commande sera prête, vous recevrez un email et vous pourrez venir la récupérer à la ferme. Votre numéro de commande est le {{ order }}. Les articles que vous avez commandés sont listés ci-dessous.
 {% endblocktrans %}
-{% if order_details_url %}
-{% blocktrans context "Order confirmation e-mail payment details" %}
-To see your payment details please visit:
-{{ order_details_url }}
-{% endblocktrans %}
-{% endif %}
 {% for line in order %}
 {{ line.quantity }} x {{ line }}, {% price line.get_total display_gross=order.display_gross_prices html=False %}
 {% endfor %}
-{% trans "Order summary" context "Order confirmation e-mail table header" %}:
-{% trans "Subtotal" context "Order confirmation e-mail table header" %}:           {% price order.get_subtotal display_gross=order.display_gross_prices html=False %}
-{% trans "Shipping" context "Order confirmation e-mail table header" %}:           {% price order.shipping_price display_gross=order.display_gross_prices html=False %}
-{% if order.display_gross_prices %}{% trans "Taxes (included)" context "Order confirmation e-mail table header" %}{% else %}{% trans "Taxes" context "Order confirmation e-mail table header" %}{% endif %}:              {% price order.total.tax html=False %}
-{% if order.discount_amount %}{% trans "Discount:" context "Order confirmation e-mail table header" %}           {% discount_as_negative order.discount %}{% endif %}
+{% trans "Résumé de la commande" context "Order confirmation e-mail table header" %}:
+{% trans "Sous-total" context "Order confirmation e-mail table header" %}:           {% price order.get_subtotal display_gross=order.display_gross_prices html=False %}
+{% trans "Livraison" context "Order confirmation e-mail table header" %}:           {% price order.shipping_price display_gross=order.display_gross_prices html=False %}
+{% if order.display_gross_prices %}{% trans "Taxes (incluses)" context "Order confirmation e-mail table header" %}{% else %}{% trans "Taxes" context "Order confirmation e-mail table header" %}{% endif %}:              {% price order.total.tax html=False %}
+{% if order.discount_amount %}{% trans "Rabais:" context "Order confirmation e-mail table header" %}           {% discount_as_negative order.discount %}{% endif %}
 {% trans "Total" context "Order confirmation e-mail table header" %}:              {% price order.total.gross html=False %}
 
-{% trans "Billing address" context "Order confirmation e-mail billing address" %}
-{% if order.billing_address %}{{ order.billing_address }}{% else %}{% trans "No billing address" context "Order confirmation e-mail text" %}{% endif %}
+{% trans "Adress de facturation" context "Order confirmation e-mail billing address" %}
+{% if order.billing_address %}{{ order.billing_address }}{% else %}{% trans "Pas d'adresse de facturation" context "Order confirmation e-mail text" %}{% endif %}
 
-{% trans "Shipping address" context "Order confirmation e-mail shipping address" %}
-{% if order.shipping_address %}{{ order.shipping_address }}{% else %}{% trans "No shipping required" context "Order confirmation e-mail text" %}{% endif %}
+{% trans "Adresse de livraison" context "Order confirmation e-mail shipping address" %}
+{% if order.shipping_address %}{{ order.shipping_address }}{% else %}{% trans "Pas d'adresse de livraison" context "Order confirmation e-mail text" %}{% endif %}
 
 {% include 'templated_email/shared/_footer.email' %}
 {% endblock %}

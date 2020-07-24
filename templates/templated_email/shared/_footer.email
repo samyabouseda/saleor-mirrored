@@ -1,7 +1,7 @@
 {% load i18n %}
 {% blocktrans trimmed context "Base email text" %}
-This is an automatically generated e-mail, please do not reply.
+Si vous avez des questions concernant votre commande, n'hésitez pas à répondre à cet email.
 {% endblocktrans %}
 {% blocktrans trimmed context "Base email footer" %}
-Sincerely, {{ site_name }}
+Meilleures salutations, l'équipe de la Ferme Desbiolles
 {% endblocktrans %}

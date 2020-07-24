@@ -10,12 +10,14 @@
     <mj-section>
       <mj-column>
         <mj-text font-size="16px">
-          {% trans "Hi!" context "Standard e-mail greeting" %}
+          {% trans "Bonjour," context "Standard e-mail greeting" %}
         </mj-text>
         <mj-text>
           {% blocktrans trimmed context "Payment confirmation e-mail text" %}
-            Thank you for your payment.
-            Your payment was successfully charged.
+            Merci de votre commande. 
+            Vous deverez régler votre commande le jour
+						où vous irrez récupérer votre colis à la ferme. Sur place, vous aurez la
+						possibilité de payer en liquide ou par carte de crédit.
           {% endblocktrans %}
         </mj-text>
       </mj-column>

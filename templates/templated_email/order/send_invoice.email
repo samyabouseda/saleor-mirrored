@@ -1,13 +1,13 @@
 {% load i18n %}
 
 {% block subject %}
-  {% trans "Invoice" context "Invoice email subject" %} {{ number }} {{ site_name }}
+  {% trans "Ferme Desbiolles: Votre facture numéro" context "Invoice email subject" %} {{ number }}
 {% endblock %}
 
 {% block plain %}
 {% include 'templated_email/shared/_header.email' %}
 {% blocktrans context "Send invoice e-mail text" %}
-In order to download invoice {{ number }}, click the link below.
+Votre facture numéro {{ number }} est disponible. Vous pouvez la téléchargée en cliquant sur le lien suivant:
 {% endblocktrans %}
 
 {{ download_url | safe }}

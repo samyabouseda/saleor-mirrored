@@ -11,11 +11,11 @@
     <mj-section>
       <mj-column>
         <mj-text font-size="16px">
-          {% trans "Hi!" context "Standard e-mail greeting" %}
+          {% trans "Bonjour," context "Standard e-mail greeting" %}
         </mj-text>
         <mj-text>
           {% blocktrans trimmed context "Order confirmation staff e-mail text" %}
-            Someone placed a new order in your store. To see order details please visit: <a href="{{ order_details_url }}">{{ order_details_url }}</a>
+            Nous vous remercions de votre commande à la Ferme Desbiolles. Nous l'avons bien reçue et allons la traiter dans les plus brefs délais. Dès que votre commande sera prête, vous recevrez un email et vous pourrez venir la récupérer à la ferme. Votrre numéro de commande est le {{ order }}. Les articles que vous avez commandés sont listés ci-dessous.
           {% endblocktrans %}
         </mj-text>
       </mj-column>
@@ -26,8 +26,8 @@
         <mj-table>
           <thead class="table-header-row">
             <tr>
-              <th>{% trans "Billing address" context "Order confirmation e-mail billing address" %}</th>
-              <th>{% trans "Shipping address" context "Order confirmation e-mail shipping address" %}</th>
+              <th>{% trans "Adresse de facturation" context "Order confirmation e-mail billing address" %}</th>
+              <th>{% trans "Adresse de livraison" context "Order confirmation e-mail shipping address" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -36,14 +36,14 @@
                 {% if order.billing_address %}
                   {% format_address order.billing_address %}
                 {% else %}
-                  {% trans "No billing address" context "Order confirmation e-mail text" %}
+                  {% trans "Pas d'adresse de facturation" context "Order confirmation e-mail text" %}
                 {% endif %}
               </td>
               <td css-class="address">
                 {% if order.shipping_address %}
                   {% format_address order.shipping_address %}
                 {% else %}
-                  {% trans "No shipping required" context "Order confirmation e-mail text" %}
+                  {% trans "Pas d'adresse de livraison requise" context "Order confirmation e-mail text" %}
                 {% endif %}
               </td>
             </tr>
